@@ -1,0 +1,30 @@
+*/5 * * * * python3 /home/pi/pi-music-bot/int.py >> /home/pi/pi-music-bot/int.txt 2>&1
+*/5 * * * * python3 /home/pi/pi-music-bot/ext.py >> /home/pi/pi-music-bot/ext.txt 2>&1
+
+
+@reboot python3 /home/pi/pi-music-bot/pibot.py >> /home/pi/pi-music-bot/pibot.txt 2>&1
+@reboot python3 /home/pi/pi-music-bot/pimusicbot.py >> /home/pi/pi-music-bot/pimusicbot.txt 2>&1
+
+#AKTUELL SCHALTET ES NUR NOCH AUS! EIN- (UND ZUSAETZLICH AUCH NOCH MAL AUSSCHALTEN) DURCH DIE KASA HOME APP SCHEDULES!
+
+# unter der woche schlafzimmer an
+#18 7 * * 1-5 /home/pi/hs100/hs100.sh on -i 192.168.0.227
+
+# unter der woche alles aus
+15 8 * * 1-5 /home/pi/pi-music-bot/alles-off.sh
+5 0 * * 1-5 /home/pi/pi-music-bot/alles-off.sh
+
+# unter der woche kueche an
+#52 7 * * 1-5 /home/pi/hs100/hs100.sh on -i 192.168.0.122
+
+
+
+# samstag und sonntag schlafzimmer an
+#20 9 * * 6,7 /home/pi/hs100/hs100.sh on -i 192.168.0.227
+
+# samstag und sonntag alles aus
+58 11 * * 6,7 home/pi/pi-music-bot/alles-off.sh
+13 1 * * 6,7 home/pi/pi-music-bot/alles-off.sh
+
+# samstag und sonntag kueche an
+#37 9 * * 6,7 /home/pi/hs100/hs100.sh on -i 192.168.0.122

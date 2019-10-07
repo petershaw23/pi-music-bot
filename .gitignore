@@ -1,0 +1,6 @@
+/__pycache__/*
+*.pyc
+*.txt
+pibot_token.py
+pimusicbot_token.py
+IPs.py
