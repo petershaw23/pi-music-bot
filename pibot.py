@@ -131,9 +131,17 @@ def handle(msg):
         os.system(twitch2_command)
         bot.sendMessage(chat_id, str("twitch2!"))
         
-    elif command == '/startx':      
+    elif command == '/startx':
+        os.system('sudo pkill emulationstation')
+        os.system('sudo pkill retroarch')
+        os.system('sudo pkill mupen64*')
         os.system('sudo systemctl start lightdm')
         bot.sendMessage(chat_id, str("startx!"))
+        
+    elif command == '/emulationstation':
+        os.system('sudo systemctl stop lightdm')
+        os.system('emulationstation')
+        bot.sendMessage(chat_id, str("emulationstation!"))  
  
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
