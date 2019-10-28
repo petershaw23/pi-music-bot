@@ -130,6 +130,11 @@ def handle(msg):
     elif command == '/startx':
         os.system('sudo systemctl start lightdm')
         bot.sendMessage(chat_id, str("startx!"))  
+        
+    elif command == '/exit':
+        os.system('sudo systemctl stop lightdm')
+        os.system('pkill retroarch')
+        bot.sendMessage(chat_id, str("exit to cli!"))  
  
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
