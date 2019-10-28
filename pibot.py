@@ -127,9 +127,8 @@ def handle(msg):
         os.system('emulationstation')
         bot.sendMessage(chat_id, str("emulationstation!"))  
         
-  elif command == '/startx':
+    elif command == '/startx':
         os.system('sudo systemctl start lightdm')
-        
         bot.sendMessage(chat_id, str("startx!"))  
  
     
