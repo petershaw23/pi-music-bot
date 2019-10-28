@@ -119,15 +119,19 @@ def handle(msg):
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
     
     elif command == '/twitch1':
+      os.system('sudo systemctl stop lightdm')
+      os.system('pkill retroarch')
       os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
       bot.sendMessage(chat_id, str("twitch1!"))
         
     elif command == '/emulationstation':
+        os.system('pkill retroarch')
         os.system('sudo systemctl stop lightdm')
         os.system('emulationstation')
         bot.sendMessage(chat_id, str("emulationstation!"))  
         
     elif command == '/startx':
+        os.system('pkill retroarch')
         os.system('sudo systemctl start lightdm')
         bot.sendMessage(chat_id, str("startx!"))  
         
