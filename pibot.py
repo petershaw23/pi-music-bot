@@ -120,23 +120,23 @@ def handle(msg):
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
         
     elif command == '/twitch1':
-        twitch1_command = "twitch1.sh"
+        twitch1_command = '/home/pi/pi-music-bot/.twitch1.sh'
         print(twitch1_command)
         os.system(twitch1_command)
         bot.sendMessage(chat_id, str("twitch1!"))
         
     elif command == '/twitch2':
-        twitch1_command = "twitch2.sh"
+        twitch1_command = '/home/pi/pi-music-bot/.twitch2.sh'
         print(twitch2_command)
         os.system(twitch2_command)
         bot.sendMessage(chat_id, str("twitch2!"))
         
-    elif command == '/startx':
+    elif command == '/exit':
         os.system('sudo pkill emulationstation')
         os.system('sudo pkill retroarch')
         os.system('sudo pkill mupen64*')
-        os.system('sudo systemctl start lightdm')
-        bot.sendMessage(chat_id, str("startx!"))
+        os.system('sudo systemctl stop lightdm')
+        bot.sendMessage(chat_id, str("back to CLI!"))
         
     elif command == '/emulationstation':
         os.system('sudo systemctl stop lightdm')
