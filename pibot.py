@@ -112,7 +112,6 @@ def handle(msg):
        print(kodi_off_command)
        os.system(kodi_off_command)
        bot.sendMessage(chat_id, str("Kodi shutting down! Wait 15 seconds..."))
-       
        sleep (15)
        plug_kodi_off_command = "/home/pi/hs100/hs100.sh off -i " +plug_kodi_IP
        print(plug_kodi_off_command)
@@ -120,15 +119,18 @@ def handle(msg):
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
     
     elif command == '/twitch1':
-      twitch1 = subprocess.Popen("bash /home/pi/pi-music-bot/twitch1.sh", stdout=subprocess.PIPE, stderr=subprocess.PIPE,  shell=True)
-      (output, error) = twitch1.communicate()
-      if twitch1.returncode != 0:
-          bot.sendMessage(chat_id, str("Error Message: %d %s %s" % (dose2.returncode, output, error)))
+      os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
+      bot.sendMessage(chat_id, str("twitch1!"))
         
     elif command == '/emulationstation':
         os.system('sudo systemctl stop lightdm')
         os.system('emulationstation')
         bot.sendMessage(chat_id, str("emulationstation!"))  
+        
+  elif command == '/startx':
+        os.system('sudo systemctl start lightdm')
+        
+        bot.sendMessage(chat_id, str("startx!"))  
  
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
