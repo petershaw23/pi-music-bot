@@ -130,6 +130,12 @@ def handle(msg):
         print(twitch2_command)
         os.system(twitch2_command)
         bot.sendMessage(chat_id, str("twitch2!"))
+        
+    elif command == '/startx':
+        startx_command = "startx"
+        print(startx_command)
+        os.system(startx_command)
+        bot.sendMessage(chat_id, str("startx!"))
  
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
