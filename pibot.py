@@ -118,10 +118,12 @@ def handle(msg):
        print(plug_kodi_off_command)
        os.system(plug_kodi_off_command)
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
-        
+    
     elif command == '/twitch1':
-        os.system('bash /home/pi/pi-music-bot/twitch1.sh')
-        bot.sendMessage(chat_id, str("twitch1!"))
+      twitch1 = subprocess.Popen("bash /home/pi/pi-music-bot/twitch1.sh", stdout=subprocess.PIPE, stderr=subprocess.PIPE,  shell=True)
+      (output, error) = twitch1.communicate()
+      if twitch1.returncode != 0:
+          bot.sendMessage(chat_id, str("Error Message: %d %s %s" % (dose2.returncode, output, error)))
         
     elif command == '/emulationstation':
         os.system('sudo systemctl stop lightdm')
