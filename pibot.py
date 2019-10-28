@@ -125,8 +125,6 @@ def handle(msg):
       bot.sendMessage(chat_id, str("twitch1!"))
         
     elif command == '/emulationstation':
-        os.system('pkill retroarch')
-        os.system('sudo systemctl stop lightdm')
         os.system('emulationstation')
         bot.sendMessage(chat_id, str("emulationstation!"))  
         
