@@ -124,6 +124,13 @@ def handle(msg):
       os.system('pkill emulation*')  
       os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
       bot.sendMessage(chat_id, str("twitch1!"))
+    
+    elif command == '/twitch2':
+      os.system('sudo systemctl stop lightdm')
+      os.system('pkill retroarch')
+      os.system('pkill emulation*')  
+      os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
+      bot.sendMessage(chat_id, str("twitch2!"))
         
     elif command == '/startx':
         os.system('pkill retroarch')
