@@ -131,6 +131,13 @@ def handle(msg):
       os.system('pkill emulation*')  
       os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
       bot.sendMessage(chat_id, str("twitch2! watch on twitch.tv/bud_lan_b"))
+           
+    elif command == '/snes':
+      os.system('sudo systemctl stop lightdm')
+      os.system('pkill retroarch')
+      os.system('pkill emulation*')  
+      os.system("bash /home/pi/pi-music-bot/snes.sh &")
+      bot.sendMessage(chat_id, str("selected snes game started! watch on twitch.tv/bud_lan_b"))
         
     elif command == '/startx':
         os.system('pkill retroarch')
