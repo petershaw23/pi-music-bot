@@ -132,7 +132,7 @@ def handle(msg):
         bot.sendMessage(chat_id, str("twitch2!"))
         
     elif command == '/startx':      
-        os.system('startx')
+        os.system('sudo systemctl start lightdm')
         bot.sendMessage(chat_id, str("startx!"))
  
     
