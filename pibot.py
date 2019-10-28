@@ -118,6 +118,19 @@ def handle(msg):
        print(plug_kodi_off_command)
        os.system(plug_kodi_off_command)
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
+        
+    elif command == '/twitch1':
+        twitch1_command = "twitch.sh"
+        print(twitch1_command)
+        os.system(twitch1_command)
+        bot.sendMessage(chat_id, str("twitch1!"))
+        
+    elif command == '/twitch2':
+        twitch1_command = "twitch2.sh"
+        print(twitch2_command)
+        os.system(twitch2_command)
+        bot.sendMessage(chat_id, str("twitch2!"))
+ 
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
 print (bot.getMe())
