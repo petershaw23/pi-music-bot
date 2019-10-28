@@ -125,7 +125,7 @@ def handle(msg):
       bot.sendMessage(chat_id, str("twitch1!"))
         
     elif command == '/emulationstation':
-        os.system('emulationstation')
+        os.system('emulationstation &')
         bot.sendMessage(chat_id, str("emulationstation!"))  
         
     elif command == '/startx':
