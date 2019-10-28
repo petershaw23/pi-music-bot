@@ -120,7 +120,7 @@ def handle(msg):
        bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
         
     elif command == '/twitch1':
-        twitch1_command = "twitch.sh"
+        twitch1_command = "twitch1.sh"
         print(twitch1_command)
         os.system(twitch1_command)
         bot.sendMessage(chat_id, str("twitch1!"))
