@@ -131,10 +131,8 @@ def handle(msg):
         os.system(twitch2_command)
         bot.sendMessage(chat_id, str("twitch2!"))
         
-    elif command == '/startx':
-        startx_command = "startx"
-        print(startx_command)
-        os.system(startx_command)
+    elif command == '/startx':      
+        os.system('startx')
         bot.sendMessage(chat_id, str("startx!"))
  
     
