@@ -101,22 +101,22 @@ def handle(msg):
         timeformat = "d:h:m:s   %d:%d:%d:%d" % (day, hour, minutes, seconds2)
         bot.sendMessage(chat_id, timeformat)
 
-#    elif command == '/kodi_on':
-#        plug_kodi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kodi_IP
-#        print(plug_kodi_on_command)
-#        os.system(plug_kodi_on_command)
-#        bot.sendMessage(chat_id, str("Kodi-Steckdose angeschaltet!"))###
+    elif command == '/kodi_on':
+        plug_kodi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kodi_IP
+        print(plug_kodi_on_command)
+        os.system(plug_kodi_on_command)
+        bot.sendMessage(chat_id, str("Kodi-Steckdose angeschaltet!"))###
 
-#    elif command == '/kodi_off':
-#       kodi_off_command = "ssh "+kodi_IP + " 'shutdown -h now'"
-#       print(kodi_off_command)
-#       os.system(kodi_off_command)
-#       bot.sendMessage(chat_id, str("Kodi shutting down! Wait 15 seconds..."))
-#       sleep (15)
-#       plug_kodi_off_command = "/home/pi/hs100/hs100.sh off -i " +plug_kodi_IP
-#       print(plug_kodi_off_command)
-#       os.system(plug_kodi_off_command)
-#       bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
+    elif command == '/kodi_off':
+       kodi_off_command = "ssh "+kodi_IP + " 'shutdown -h now'"
+       print(kodi_off_command)
+       os.system(kodi_off_command)
+       bot.sendMessage(chat_id, str("Kodi shutting down! Wait 15 seconds..."))
+       sleep (15)
+       plug_kodi_off_command = "/home/pi/hs100/hs100.sh off -i " +plug_kodi_IP
+       print(plug_kodi_off_command)
+       os.system(plug_kodi_off_command)
+       bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
     
     elif command == '/twitch1':
       os.system('sudo systemctl stop lightdm')
