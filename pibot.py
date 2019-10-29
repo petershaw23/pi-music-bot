@@ -123,14 +123,21 @@ def handle(msg):
       os.system('pkill retroarch')
       os.system('pkill emulation*')  
       os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
-      bot.sendMessage(chat_id, str("twitch1! twitch.tv/bud_lan_b"))
+      bot.sendMessage(chat_id, str("snes demo rom 1! twitch.tv/bud_lan_b"))
     
     elif command == '/twitch2':
       os.system('sudo systemctl stop lightdm')
       os.system('pkill retroarch')
       os.system('pkill emulation*')  
       os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
-      bot.sendMessage(chat_id, str("twitch2! watch on twitch.tv/bud_lan_b"))
+      bot.sendMessage(chat_id, str("snes demo rom 2! watch on twitch.tv/bud_lan_b"))
+    
+    elif command == '/twitch3':
+      os.system('sudo systemctl stop lightdm')
+      os.system('pkill retroarch')
+      os.system('pkill emulation*')  
+      os.system("bash /home/pi/pi-music-bot/twitch3.sh &")
+      bot.sendMessage(chat_id, str("genesis demo rom! watch on twitch.tv/bud_lan_b"))
            
     elif command == '/snes':
       os.system('sudo systemctl stop lightdm')
