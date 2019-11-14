@@ -4,6 +4,8 @@ import subprocess
 import os
 import random
 import datetime  # Importing the datetime library
+timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+print (timestamp)
 import telepot   # Importing the telepot library
 from telepot.loop import MessageLoop    # Library function to communicate with telegram bot
 
@@ -32,7 +34,7 @@ def handle(msg):
         
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
-            print ('command hi executed by'+str(sender))
+            print ('command hi executed by '+str(sender))
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
