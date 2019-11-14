@@ -24,7 +24,7 @@ kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
 def logging():
-    print(timestamp)
+    print ((timestamp) +str'message '+str(command)+' sent by ID# '+str(sender))
 
 def handle(msg):
     chat_id = msg['chat']['id']
@@ -33,15 +33,13 @@ def handle(msg):
     
     if sender in IDList:
         bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
-        print ('message '+str(command)+' sent by allowed ID# '+str(sender))
         logging()
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
-            print ('command hi executed by '+str(sender))
+            logging()
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
-        print ('message '+str(command)+' sent by blocked ID# '+str(sender))
         logging()
         
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
