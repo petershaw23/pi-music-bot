@@ -14,3 +14,5 @@ you need to create a pibot_token.py file in root directory containing your teleg
 token = '879784535:AAFbXXXXXXXXXXXXXXXXXXXXXXX'
 
 same with pimusicbot_token.py
+
+in addition, you need a IDList.py with your allowed telegram IDs
