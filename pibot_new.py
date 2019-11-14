@@ -27,7 +27,7 @@ def handle(msg):
     
     def logging(status):
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-        print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender)+' :'+str(status))
+        print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender)+': '+str(status))
     
     
     chat_id = msg['chat']['id']
