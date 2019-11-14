@@ -17,7 +17,7 @@ token = pibot_token.token
 
 import IDList # imports local file IDList.py with allowed telegram users
 #IDList = IDList.IDList
-IDList = [test]
+IDList = [123123123]
 print(IDList)
 
 import IPs # imports local file IPs.py with LAN IP Addresses
