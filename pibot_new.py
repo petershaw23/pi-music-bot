@@ -23,10 +23,14 @@ import IPs # imports local file IPs.py with LAN IP Addresses
 kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
-def logging():
-    print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender))
+
 
 def handle(msg):
+    
+    def logging():
+    print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender))
+    
+    
     chat_id = msg['chat']['id']
     command = msg['text']
     sender = msg['from']['id']
