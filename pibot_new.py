@@ -28,11 +28,11 @@ def handle(msg):
         bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
-        
+            print ('command hi granted to ')+str(sender))
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
-
+        print ('access denied to ')+str(sender))
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
 print (bot.getMe())
