@@ -16,15 +16,14 @@ import IPs
 kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
-
-id_a = [272317007, 272317008]
+IDList = [line.rstrip('\n') for line in open('IDList.txt')]
 
 def handle(msg):
     chat_id = msg['chat']['id']
     command = msg['text']
     sender = msg['from']['id']
     
-    if sender in id_a:
+    if sender in IDList:
         bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
         print ('message '+str(command)+' sent by allowed ID# '+str(sender))
         
