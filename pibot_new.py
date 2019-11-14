@@ -5,8 +5,6 @@ import os
 import random
 import time
 import datetime  # Importing the datetime library
-
-print (timestamp)
 import telepot   # Importing the telepot library
 from telepot.loop import MessageLoop    # Library function to communicate with telegram bot
 
