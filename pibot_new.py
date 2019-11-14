@@ -14,8 +14,7 @@ import pibot_token # imports local file pibot-token.py with telegram bot token
 token = pibot_token.token
 
 import IDList # imports local file IDList.py with allowed telegram users
-#IDList = IDList.IDList
-IDList = [123123123]
+IDList = IDList.IDList
 print(IDList)
 
 import IPs # imports local file IPs.py with LAN IP Addresses
@@ -26,9 +25,9 @@ plug_kodi_IP = IPs.plug_kodi_IP
 
 def handle(msg):
     
-    def logging():
+    def logging(status):
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-        print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender))
+        print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender)+' :' str(status))
     
     
     chat_id = msg['chat']['id']
@@ -40,11 +39,11 @@ def handle(msg):
         
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
-            logging()
+            logging('allowed')
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
-        logging()
+        logging('denied')
         
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
 print (bot.getMe())
