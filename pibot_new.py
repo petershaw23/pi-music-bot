@@ -5,7 +5,7 @@ import os
 import random
 import time
 import datetime  # Importing the datetime library
-timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+
 print (timestamp)
 import telepot   # Importing the telepot library
 from telepot.loop import MessageLoop    # Library function to communicate with telegram bot
@@ -29,6 +29,7 @@ plug_kodi_IP = IPs.plug_kodi_IP
 def handle(msg):
     
     def logging():
+        timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
         print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender))
     
     
