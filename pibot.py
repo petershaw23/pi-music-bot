@@ -61,13 +61,11 @@ def handle(msg):
             seconds2 = seconds
             timeformat = "d:h:m:s   %d:%d:%d:%d" % (day, hour, minutes, seconds2)
             bot.sendMessage(chat_id, timeformat)
-            
         elif command == '/kodi_on':
             plug_kodi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kodi_IP
             print(plug_kodi_on_command)
             os.system(plug_kodi_on_command)
             bot.sendMessage(chat_id, str("Kodi-Steckdose angeschaltet!"))###
-            
         elif command == '/kodi_off':
            kodi_off_command = "ssh "+kodi_IP + " 'shutdown -h now'"
            print(kodi_off_command)
@@ -78,8 +76,17 @@ def handle(msg):
            print(plug_kodi_off_command)
            os.system(plug_kodi_off_command)
            bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
-
-
+        elif command == '/startx':
+            os.system('pkill retroarch')
+            os.system('pkill emulation*')
+            os.system('sudo systemctl start lightdm')
+            bot.sendMessage(chat_id, str("startx!"))  
+        elif command == '/reboot':
+            bot.sendMessage(chat_id, str("rebooting!")) 
+            os.system('sudo reboot')
+            
+            
+            
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
         logging('DENIED!')
