@@ -19,15 +19,15 @@ plug_kodi_IP = IPs.plug_kodi_IP
 
 id_a = [111111,2222222,3333333,4444444,5555555]
 
-    def handle(msg):
-        chat_id = msg['chat']['id']
-        command = msg['text']
-        sender = msg['from']['id']
-     if sender in id_a:
-         bot.sendMessage(chat_id, 'allow access!')
-     else:
-           bot.sendMessage(chat_id, 'Forbidden access!')
-           bot.sendMessage(chat_id, sender)
+def handle(msg):
+    chat_id = msg['chat']['id']
+    command = msg['text']
+    sender = msg['from']['id']
+    if sender in id_a:
+        bot.sendMessage(chat_id, 'allow access!')
+    else:
+        bot.sendMessage(chat_id, 'Forbidden access!')
+        bot.sendMessage(chat_id, sender)
  
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
