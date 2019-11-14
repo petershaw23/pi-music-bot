@@ -17,6 +17,7 @@ kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
 IDList = [line.rstrip('\n') for line in open('IDList.txt')]
+print(IDList)
 
 def handle(msg):
     chat_id = msg['chat']['id']
