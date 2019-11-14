@@ -26,6 +26,8 @@ def handle(msg):
     
     if sender in id_a:
         bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
+        print ('message '+str(command)+'sent by '+str(sender))
+        
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
             print ('command hi granted to '+str(sender))
