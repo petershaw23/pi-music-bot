@@ -11,6 +11,8 @@ from telepot.loop import MessageLoop    # Library function to communicate with t
 
 import pibot_token # imports local file pibot-token.py with telegram bot token
 token = pibot_token.token
+import IDList # imports local file IDList.py with allowed telegram users
+IDList = IDList.IDList
 
 import IPs
 kodi_IP = IPs.kodi_IP
