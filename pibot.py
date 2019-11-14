@@ -40,7 +40,7 @@ def handle(msg):
         
  
         if command == '/start':
-            bot.sendMessage (chat_id, str("Hi! Dies ist dem Michael sein toller Pi-Bot! Versuche mal /time /date oder /roll !"))
+            bot.sendMessage (chat_id, str("Hi! Dies ist dem Michael sein toller Pi-Bot! Versuche mal /time /date /uptime oder /roll !"))
         elif command == '/time':
             now = datetime.datetime.now() # Getting date and time
             bot.sendMessage(chat_id, str(now.hour) + str(":") + str(now.minute), parse_mode= 'Markdown')
@@ -49,10 +49,37 @@ def handle(msg):
              bot.sendMessage(chat_id, str("Date: ") + str(now.day) + str("/") + str(now.month) + str("/") + str(now.year))
         elif command == '/roll':
             bot.sendMessage(chat_id, random.randint(1,6))
-       
+        elif command == '/uptime':
+            with open('/proc/uptime', 'r') as f:
+                seconds = float(f.readline().split()[0])
+            day = seconds // (24 * 3600)
+            seconds = seconds % (24 * 3600)
+            hour = seconds / 3600
+            seconds %= 3600
+            minutes = seconds //60
+            seconds %= 60
+            seconds2 = seconds
+            timeformat = "d:h:m:s   %d:%d:%d:%d" % (day, hour, minutes, seconds2)
+            bot.sendMessage(chat_id, timeformat)
     
-    
-   
+       elif command == '/kodi_on':
+            plug_kodi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kodi_IP
+            print(plug_kodi_on_command)
+            os.system(plug_kodi_on_command)
+            bot.sendMessage(chat_id, str("Kodi-Steckdose angeschaltet!"))###
+
+       elif command == '/kodi_off':
+           kodi_off_command = "ssh "+kodi_IP + " 'shutdown -h now'"
+           print(kodi_off_command)
+           os.system(kodi_off_command)
+           bot.sendMessage(chat_id, str("Kodi shutting down! Wait 15 seconds..."))
+           sleep (15)
+           plug_kodi_off_command = "/home/pi/hs100/hs100.sh off -i " +plug_kodi_IP
+           print(plug_kodi_off_command)
+           os.system(plug_kodi_off_command)
+           bot.sendMessage(chat_id, str("Kodi-Steckdose aus!"))
+
+
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
         logging('DENIED!')
