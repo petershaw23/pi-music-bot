@@ -6,7 +6,7 @@ import random
 import datetime  # Importing the datetime library
 import telepot   # Importing the telepot library
 from telepot.loop import MessageLoop    # Library function to communicate with telegram bot
-from telegram.ext import MessageHandler, Filters
+
 
 
 import pibot_token # imports local file pibot-token.py with telegram bot token
