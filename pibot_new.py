@@ -36,8 +36,8 @@ def handle(msg):
     sender = msg['from']['id']
     
     if sender in IDList:
-        bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
-        logging()
+        pass
+        
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
             logging()
