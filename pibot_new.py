@@ -17,7 +17,7 @@ kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
 
-id_a = [272317007]
+id_a = [272317007, 272317008]
 
 def handle(msg):
     chat_id = msg['chat']['id']
