@@ -11,15 +11,15 @@ from telepot.loop import MessageLoop    # Library function to communicate with t
 
 import pibot_token # imports local file pibot-token.py with telegram bot token
 token = pibot_token.token
+
 import IDList # imports local file IDList.py with allowed telegram users
 IDList = IDList.IDList
+print(IDList)
 
-import IPs
+import IPs # imports local file IPs.py with LAN IP Addresses
 kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
-IDList = [line.rstrip('\n') for line in open('IDList.txt')]
-print(IDList)
 
 def handle(msg):
     chat_id = msg['chat']['id']
