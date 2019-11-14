@@ -1,5 +1,5 @@
 from time import sleep      # Importing the time library to provide the delays in program
-sleep (10)
+#sleep (10)
 import subprocess
 import os
 import random
@@ -55,7 +55,9 @@ def handle(msg):
 
     # Comparing the incoming message to send a reply according to it
     if command == '/start':
+        
         bot.sendMessage (chat_id, str("Hi! Dies ist dem Michael sein toller Pi-Bot! Er kann leider nix, aber egal. Versuche mal /roll /time /uptime /date /temp /humidity /pressure oder /meme ! Ausserdem kann er hi sagen :D"))
+        bot.sendMessage(update.message.chat_id, str(update.message.from_user.username)) 
     elif command == '/time':
         now = datetime.datetime.now() # Getting date and time
         bot.sendMessage(chat_id, str(now.hour) + str(":") + str(now.minute), parse_mode= 'Markdown')
