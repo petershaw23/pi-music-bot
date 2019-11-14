@@ -36,11 +36,11 @@ def handle(msg):
     sender = msg['from']['id']
     
     if sender in IDList:
-        pass
+        logging('allowed!')
         
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
-            logging('allowed!')
+            
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
