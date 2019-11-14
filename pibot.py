@@ -38,10 +38,21 @@ def handle(msg):
     if sender in IDList:
         logging('allowed!')
         
-        if command == 'hi':
-            bot.sendMessage(chat_id, 'hi, '+str(sender))
-            
-        
+ 
+        if command == '/start':
+            bot.sendMessage (chat_id, str("Hi! Dies ist dem Michael sein toller Pi-Bot! Versuche mal /time /date oder /roll !"))
+        elif command == '/time':
+            now = datetime.datetime.now() # Getting date and time
+            bot.sendMessage(chat_id, str(now.hour) + str(":") + str(now.minute), parse_mode= 'Markdown')
+        elif command == '/date':
+             now = datetime.datetime.now() # Getting date and time
+             bot.sendMessage(chat_id, str("Date: ") + str(now.day) + str("/") + str(now.month) + str("/") + str(now.year))
+        elif command == '/roll':
+            bot.sendMessage(chat_id, random.randint(1,6))
+       
+    
+    
+   
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
         logging('DENIED!')
