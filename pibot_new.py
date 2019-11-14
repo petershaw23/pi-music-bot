@@ -24,7 +24,7 @@ kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
 
 def logging():
-    print ((timestamp) +str'message '+str(command)+' sent by ID# '+str(sender))
+    print (str(timestamp) +': Message '+str(command)+' sent by ID# '+str(sender))
 
 def handle(msg):
     chat_id = msg['chat']['id']
