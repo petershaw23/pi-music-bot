@@ -26,7 +26,7 @@ def handle(msg):
     
     if sender in id_a:
         bot.sendMessage(chat_id, 'access granted, you are ID# '+str(sender))
-        print ('message '+str(command)+'sent by '+str(sender))
+        print ('message '+str(command)+' sent by allowed ID# '+str(sender))
         
         if command == 'hi':
             bot.sendMessage(chat_id, 'hi, '+str(sender))
@@ -34,7 +34,7 @@ def handle(msg):
         
     else:
         bot.sendMessage(chat_id, 'access denied! you suck, ID# '+str(sender))
-        print ('access denied to '+str(sender))
+        print ('message '+str(command)+' sent by blocked ID# '+str(sender))
     
 bot = telepot.Bot(token) # get token key from from local file pibot-token.py
 print (bot.getMe())
