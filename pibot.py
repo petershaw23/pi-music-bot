@@ -1,3 +1,4 @@
+# telegram bot to control a hs100 plug and do other random stuff
 from time import sleep      # Importing the time library to provide the delays in program
 sleep (11)
 import subprocess
