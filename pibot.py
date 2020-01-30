@@ -8,6 +8,10 @@ import time
 import datetime  # Importing the datetime library
 import telepot   # Importing the telepot library
 from telepot.loop import MessageLoop    # Library function to communicate with telegram bot
+try:
+    import httplib
+except:
+    import http.client as httplib
 
 # print(os.environ) #test 
 
@@ -85,6 +89,18 @@ def handle(msg):
         elif command == '/reboot':
             bot.sendMessage(chat_id, str("rebooting!")) 
             os.system('sudo reboot')
+            
+        elif command == '/check':
+            bot.sendMessage(chat_id, str("checking connection...")) 
+            conn = httplib.HTTPConnection("www.uni-heidelberg.de", timeout=5)
+            try:
+                conn.request("HEAD", "/")
+                conn.close()
+                bot.sendMessage(chat_id, str("uni HD reachable! Everything ok!")) 
+            except:
+                conn.close()
+                bot.sendMessage(chat_id, str("uni HD NOT reachable! IS NOT OK!"))
+        
             
             
             
