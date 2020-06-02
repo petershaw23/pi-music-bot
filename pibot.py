@@ -26,7 +26,7 @@ IDList = IDList.IDList
 import IPs # imports local file IPs.py with LAN IP Addresses
 kodi_IP = IPs.kodi_IP
 plug_kodi_IP = IPs.plug_kodi_IP
-
+schlafzi_IP = IPs.schlafzi_IP
 
 
 def handle(msg):
