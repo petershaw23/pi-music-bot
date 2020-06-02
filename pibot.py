@@ -89,7 +89,13 @@ def handle(msg):
         elif command == '/reboot':
             bot.sendMessage(chat_id, str("rebooting!")) 
             os.system('sudo reboot')
-            
+        elif command == '/restart':
+            os.system('sudo systemctl restart raspotify')
+            bot.sendMessage(chat_id, str("restarted raspotify!"))
+            os.system('sudo systemctl restart snapclient')
+            bot.sendMessage(chat_id, str("restarted snapclient!"))
+            os.system('ssh '+schlafzi_IP+' " sudo systemctl restart snapserver"')
+            bot.sendMessage(chat_id, str("restarted snapserver!"))
         elif command == '/check':
             bot.sendMessage(chat_id, str("checking connection...")) 
             conn = httplib.HTTPConnection("www.uni-heidelberg.de", timeout=5)
