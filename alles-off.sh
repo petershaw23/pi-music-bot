@@ -10,5 +10,5 @@ sleep 18
 /home/pi/hs100/hs100.sh off -i $plug_schlafzi_IP #schlafzi dose
 sleep 4
 /home/pi/hs100/hs100.sh off -i $plug_kueche_IP #kueche
-sleep 1
-/home/pi/hs100/hs100.sh off -i $plug_wohnzi_IP #wohnzimmer dose
+#sleep 1
+#/home/pi/hs100/hs100.sh off -i $plug_wohnzi_IP #wohnzimmer dose
