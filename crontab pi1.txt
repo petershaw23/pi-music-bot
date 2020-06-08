@@ -23,8 +23,8 @@
 #20 9 * * 6,7 /home/pi/hs100/hs100.sh on -i 192.168.0.227
 
 # samstag und sonntag alles aus
-58 11 * * 6,7 home/pi/pi-music-bot/alles-off.sh
-13 1 * * 6,7 home/pi/pi-music-bot/alles-off.sh
+58 11 * * 6,7 /home/pi/pi-music-bot/alles-off.sh
+13 1 * * 6,7 /home/pi/pi-music-bot/alles-off.sh
 
 # samstag und sonntag kueche an
 #37 9 * * 6,7 /home/pi/hs100/hs100.sh on -i 192.168.0.122
