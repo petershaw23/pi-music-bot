@@ -142,7 +142,7 @@ def on_callback_query(msg):
         os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
         print('schlafzi pressed off')
         bot.answerCallbackQuery(query_id, text='Schlafzimmer aus!')
-        #os.system('/home/pi/pi-music-bot/schlafzi-off.sh')
+        os.system('/home/pi/pi-music-bot/schlafzi-off.sh')
 
     elif query_data == 'kueche-off':
         os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
