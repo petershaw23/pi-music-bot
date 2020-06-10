@@ -123,19 +123,13 @@ def on_callback_query(msg):
         plug_kueche_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kueche_IP
         print(plug_kueche_on_command)
         os.system(plug_kueche_on_command)
-        plug_schlafzi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_schlafzi_IP
-        print(plug_schlafzi_on_command)
-        os.system(plug_schlafzi_on_command)
-        bot.answerCallbackQuery(query_id, text='Kueche u. Schlafzimmer angeschaltet!')
+        bot.answerCallbackQuery(query_id, text='Kueche angeschaltet!')
 
     elif query_data == 'wohnzi-on':
         plug_wohnzi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_wohnzi_IP
         print(plug_wohnzi_on_command)
         os.system(plug_wohnzi_on_command)
-        plug_schlafzi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_schlafzi_IP
-        print(plug_schlafzi_on_command)
-        os.system(plug_schlafzi_on_command)
-        bot.answerCallbackQuery(query_id, text='Wohnzimmer u. Schlafzimmer angeschaltet!')
+        bot.answerCallbackQuery(query_id, text='Wohnzimmer angeschaltet!')
 
     elif query_data == 'schlafzi-off':
         os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
