@@ -120,6 +120,7 @@ def on_callback_query(msg):
         bot.answerCallbackQuery(query_id, text='Schlafzimmer angeschaltet!')
 
     elif query_data == 'kueche-on':
+        os.system('ssh '+kueche_IP+' " mpc play"')
         plug_kueche_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kueche_IP
         print(plug_kueche_on_command)
         os.system(plug_kueche_on_command)
@@ -139,11 +140,13 @@ def on_callback_query(msg):
         os.system('/home/pi/pi-music-bot/schlafzi-off.sh')
 
     elif query_data == 'kueche-off':
-        os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
-        os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
+        #os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
+        #os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
+        
         print('kueche pressed off')
         bot.answerCallbackQuery(query_id, text='Kueche aus!')
         os.system('/home/pi/pi-music-bot/kueche-off.sh')
+        os.system('ssh '+kueche_IP+' " mpc stop"')
 
     elif query_data == 'wohnzi-off':
         os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
