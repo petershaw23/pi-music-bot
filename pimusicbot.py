@@ -34,10 +34,10 @@ def on_chat_message(msg):
 
 
     if command == '/track':
-        trackid = subprocess.Popen("curl "+schlafzi_IP+"/api/v1/getstate", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        trackid = subprocess.Popen("curl "+wohnzi_IP+"/api/v1/getstate", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         (outputRAW, error) = trackid.communicate()
         if trackid.returncode != 0: 
-            bot.sendMessage(chat_id, str("Schlafzimmer aus? Full Error Message: %d %s %s" % (trackid.returncode, outputRAW, error)))
+            bot.sendMessage(chat_id, str("Wohnzi aus? Full Error Message: %d %s %s" % (trackid.returncode, outputRAW, error)))
         else: 
             title = outputRAW.decode().split('\"')[9] #curl status string split and select 9th word, which is the track title
             artist = outputRAW.decode().split('\"')[13] #..13th word, is artist
@@ -100,17 +100,17 @@ def on_callback_query(msg):
 
     if query_data == 'play':
         print('pressed play')
-        os.system('ssh '+schlafzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
+        os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
         bot.answerCallbackQuery(query_id, text='play')
 
     elif query_data == 'pause':
         print('pressed pause')
-        os.system('ssh '+schlafzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh toggle"')
+        os.system('ssh '+wohnzizi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh toggle"')
         bot.answerCallbackQuery(query_id, text='pause')
 
     elif query_data == 'next':
         print('pressed next')
-        os.system('ssh '+schlafzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh next"')
+        os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh next"')
         bot.answerCallbackQuery(query_id, text='next')
 
     elif query_data == 'schlafzi-on':
@@ -182,42 +182,42 @@ def on_callback_query(msg):
     elif query_data == 'playlist1':
         print('playlist1 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 1 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist1"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist1"')
         
     elif query_data == 'playlist2':
         print('playlist2 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 2 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist2"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist2"')
         
     elif query_data == 'playlist3':
         print('playlist2 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 3 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist3"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist3"')
         
     elif query_data == 'playlist4':
         print('playlist4 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 4 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist4"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist4"')
         
     elif query_data == 'playlist5':
         print('playlist5 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 5 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist5"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist5"')
        
     elif query_data == 'playlist6':
         print('playlist6 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 6 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist6"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist6"')
         
     elif query_data == 'playlist7':
         print('playlist7 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 7 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist7"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist7"')
         
     elif query_data == 'playlist8':
         print('playlist8 pressed')
         bot.answerCallbackQuery(query_id, text='Playlist 8 play!')
-        os.system('curl '+schlafzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist8"')
+        os.system('curl '+wohnzi_IP+'/api/v1/commands/?cmd="playplaylist&name=playlist8"')
         
 
 
