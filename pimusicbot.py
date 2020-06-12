@@ -75,7 +75,7 @@ def on_chat_message(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
 
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-                   [InlineKeyboardButton(text='\U000025B6 play', callback_data='play'), InlineKeyboardButton(text='\U000025FB pause', callback_data='pause'), InlineKeyboardButton(text='\U000023E9 next', callback_data='next')],
+                   [InlineKeyboardButton(text='\U000025B6 play', callback_data='play'), InlineKeyboardButton(text='\U000025FB stop', callback_data='stop'), InlineKeyboardButton(text='\U000023E9 next', callback_data='next')],
                    [InlineKeyboardButton(text='\U0001F4C41', callback_data='playlist1'), InlineKeyboardButton(text='\U0001F4C42', callback_data='playlist2'), InlineKeyboardButton(text='\U0001F4C43', callback_data='playlist3'), InlineKeyboardButton(text='\U0001F4C44', callback_data='playlist4'), InlineKeyboardButton(text='\U0001F4C45', callback_data='playlist5'), InlineKeyboardButton(text='\U0001F4C46', callback_data='playlist6'), InlineKeyboardButton(text='\U0001F4C47', callback_data='playlist7'), InlineKeyboardButton(text='\U0001F4C48', callback_data='playlist8')],
                    [InlineKeyboardButton(text='\U0001F6CF \U0001F50A ', callback_data='schlafzi-on'),
                    InlineKeyboardButton(text='\U0001F374\U0001F50A', callback_data='kueche-on'),
@@ -100,13 +100,17 @@ def on_callback_query(msg):
 
     if query_data == 'play':
         print('pressed play')
+        os.system('ssh '+kueche_IP+' " mpc play"')
+        os.system('ssh '+schlafzi_IP+' " omxplayer -o alsa --loop /home/pi/rain.mp3"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
         bot.answerCallbackQuery(query_id, text='play')
 
-    elif query_data == 'pause':
-        print('pressed pause')
-        os.system('ssh '+wohnzizi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh toggle"')
-        bot.answerCallbackQuery(query_id, text='pause')
+    elif query_data == 'stop':
+        print('pressed stop')
+        os.system('ssh '+kueche_IP+' " mpc stop"')
+        os.system('ssh '+schlafzi_IP+' " killall omxplayer.bin"')
+        os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh toggle"')
+        bot.answerCallbackQuery(query_id, text='stop')
 
     elif query_data == 'next':
         print('pressed next')
