@@ -100,14 +100,14 @@ def on_callback_query(msg):
 
     if query_data == 'play':
         print('pressed play')
-        os.system('ssh '+kueche_IP+' " mpc play"')
+        os.system('ssh '+kueche_IP+' " mpc volume 50 && mpc play"')
         os.system('ssh '+schlafzi_IP+' " omxplayer -o alsa --loop /home/pi/rain.mp3"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
         bot.answerCallbackQuery(query_id, text='play')
 
     elif query_data == 'stop':
         print('pressed stop')
-        os.system('ssh '+kueche_IP+' " mpc stop"')
+        os.system('ssh '+kueche_IP+' " mpc stop && mpc volume 100"')
         os.system('ssh '+schlafzi_IP+' " killall omxplayer.bin"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh toggle"')
         bot.answerCallbackQuery(query_id, text='stop')
