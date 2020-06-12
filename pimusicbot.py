@@ -124,7 +124,7 @@ def on_callback_query(msg):
         bot.answerCallbackQuery(query_id, text='Schlafzimmer angeschaltet!')
 
     elif query_data == 'kueche-on':
-        os.system('ssh '+kueche_IP+' " mpc play"')
+        os.system('ssh '+kueche_IP+' " mpc volume 50 && mpc play"')
         plug_kueche_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kueche_IP
         print(plug_kueche_on_command)
         os.system(plug_kueche_on_command)
