@@ -99,64 +99,70 @@ def on_callback_query(msg):
 
 
     if query_data == 'play':
+        bot.answerCallbackQuery(query_id, text='play')
         print('pressed play')
-        os.system('ssh '+kueche_IP+' " sudo systemctl stop snapclient && mpc volume 50 && mpc play"')
+        os.system('ssh '+kueche_IP+' " mpc volume 70 && mpc play"')
         os.system('ssh '+schlafzi_IP+' " sudo systemctl stop snapclient && omxplayer -o alsa --loop /home/pi/rain.mp3"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
-        bot.answerCallbackQuery(query_id, text='play')
+        
 
     elif query_data == 'stop':
+        bot.answerCallbackQuery(query_id, text='stop')
         print('pressed stop')
-        os.system('ssh '+kueche_IP+' " mpc stop && mpc volume 100 && sudo systemctl start snapclient"')
+        os.system('ssh '+kueche_IP+' " mpc stop && mpc volume 100"')
         os.system('ssh '+schlafzi_IP+' " killall omxplayer.bin  && sudo systemctl start snapclient"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh stop"')
-        bot.answerCallbackQuery(query_id, text='stop')
+        
 
     elif query_data == 'next':
+        bot.answerCallbackQuery(query_id, text='next')
         print('pressed next')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh next"')
-        bot.answerCallbackQuery(query_id, text='next')
+        
 
     elif query_data == 'schlafzi-on':
+        bot.answerCallbackQuery(query_id, text='Schlafzimmer angeschaltet!')
         plug_schlafzi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_schlafzi_IP
         print(plug_schlafzi_on_command)
         os.system(plug_schlafzi_on_command)
-        bot.answerCallbackQuery(query_id, text='Schlafzimmer angeschaltet!')
+        
 
     elif query_data == 'kueche-on':
+        bot.answerCallbackQuery(query_id, text='Kueche angeschaltet!')
         os.system('ssh '+kueche_IP+' " mpc volume 50 && mpc play"')
         plug_kueche_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kueche_IP
         print(plug_kueche_on_command)
         os.system(plug_kueche_on_command)
-        bot.answerCallbackQuery(query_id, text='Kueche angeschaltet!')
+        
 
     elif query_data == 'wohnzi-on':
+        bot.answerCallbackQuery(query_id, text='Wohnzimmer angeschaltet!')
         plug_wohnzi_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_wohnzi_IP
         print(plug_wohnzi_on_command)
         os.system(plug_wohnzi_on_command)
-        bot.answerCallbackQuery(query_id, text='Wohnzimmer angeschaltet!')
+        
 
     elif query_data == 'schlafzi-off':
+        bot.answerCallbackQuery(query_id, text='Schlafzimmer aus!')
         os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
         os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
         print('schlafzi pressed off')
-        bot.answerCallbackQuery(query_id, text='Schlafzimmer aus!')
+        
         os.system('/home/pi/pi-music-bot/schlafzi-off.sh')
 
     elif query_data == 'kueche-off':
+        bot.answerCallbackQuery(query_id, text='Kueche aus!')
         #os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
         #os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
-        
         print('kueche pressed off')
-        bot.answerCallbackQuery(query_id, text='Kueche aus!')
         os.system('/home/pi/pi-music-bot/kueche-off.sh')
         os.system('ssh '+kueche_IP+' " mpc stop"')
 
     elif query_data == 'wohnzi-off':
+        bot.answerCallbackQuery(query_id, text='Wohnzimmer aus!')
         os.system('killall alles-off-30.sh') #zuerst evlt  bestehende timer canceln
         os.system('killall alles-off-45.sh') #zuerst evtl bestehende timer canceln
         print('wohnzi pressed off')
-        bot.answerCallbackQuery(query_id, text='Wohnzimmer aus!')
         os.system('/home/pi/pi-music-bot/wohnzi-off.sh')
 
     elif query_data == 'alles-off':
