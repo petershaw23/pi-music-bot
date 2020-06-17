@@ -101,7 +101,7 @@ def on_callback_query(msg):
     if query_data == 'play':
         bot.answerCallbackQuery(query_id, text='play')
         print('pressed play')
-        os.system('ssh '+kueche_IP+' " mpc volume 80 && mpc play"')
+        os.system('ssh '+kueche_IP+' " mpc volume 90 && mpc play"')
         os.system('ssh '+schlafzi_IP+' " sudo systemctl stop snapclient && omxplayer -o alsa --loop /home/pi/rain.mp3"')
         os.system('ssh '+wohnzi_IP+' " /volumio/app/plugins/system_controller/volumio_command_line_client/volumio.sh play"')
         
@@ -129,7 +129,7 @@ def on_callback_query(msg):
 
     elif query_data == 'kueche-on':
         bot.answerCallbackQuery(query_id, text='Kueche angeschaltet!')
-        os.system('ssh '+kueche_IP+' " mpc volume 80 && mpc play"')
+        os.system('ssh '+kueche_IP+' " mpc volume 90 && mpc play"')
         plug_kueche_on_command = "/home/pi/hs100/hs100.sh on -i " +plug_kueche_IP
         print(plug_kueche_on_command)
         os.system(plug_kueche_on_command)
